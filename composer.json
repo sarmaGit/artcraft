@@ -3,7 +3,8 @@
     "gabordemooij/redbean": "dev-master",
     "dapphp/securimage": "^4.0",
     "phpmailer/phpmailer": "^6.1",
-    "spatie/array-to-xml": "^2.11"
+    "spatie/array-to-xml": "^2.11",
+    "firebase/php-jwt": "^5.0"
   },
   "autoload": {
     "classmap": ["Classes/"]

@@ -7,6 +7,7 @@ use \RedBeanPHP\R as R;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use \Firebase\JWT\JWT;
 
 
 $data = $_POST;
@@ -40,13 +41,21 @@ if (isset($data['do_reg'])) {
         $user = R::dispense('users');
         $user->name = $data['name'];
         $user->email = $data['email'];
+
         // Generate key for confirm email
-        $key = UserHelper::generate_key();
+
+        $time = time();
+        $token = array(
+            "name" => $data['name'],
+            "created_at" => $time,
+            "expired_at" => $time + 3600
+        );
+        $jwt = JWT::encode($token, $api_key);
 
         // email subject
         $subj = "Confirm email";
         // email message
-        $msg = "http://artcraft/confirm.php?key={$key}&name={$user->name}";
+        $msg = "http://artcraft/confirm.php?key={$jwt}&name={$user->name}";
 
         //Create a new PHPMailer instance
         $mail = new PHPMailer;
@@ -80,15 +89,16 @@ if (isset($data['do_reg'])) {
             $mail->Subject = $subj;
             $mail->Body = $msg;
             $mail->send();
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
 
         // store user without key
         R::store($user);
-        echo "<div><p class='alert alert-success'>
-                Регистрация прошла успешно, подтвердите email
-              </p></div>";
+        echo "<div>
+            <p class='alert alert-success'>Регистрация прошла успешно, подтвердите email.</p>
+            <p><a href='/'>Главная</a></p>
+              </div>";
     } else {
         // Display errors
         echo "<div>";
