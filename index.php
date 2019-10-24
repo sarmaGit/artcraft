@@ -25,11 +25,10 @@ use \Firebase\JWT\JWT;
         </tr>
         </thead>
         <?php
-        $u_help = new Helper();
 
         $order = $_GET['order'];
 
-        $users = $u_help->users_order_by($order);
+        $users = Helper::order_by('users', $order);
         foreach ($users as $user) {
             echo "<tr>";
             echo "<td>{$user['id']}</td>";

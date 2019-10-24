@@ -5,12 +5,14 @@ use \RedBeanPHP\R as R;
 class Helper
 {
 
-    public function users_order_by($ord)
+    public static function order_by($table = 'users', $ord = 'id')
     {
+
         if (!isset($ord)) {
             $ord = 'id';
         }
-        return R::getAll("select * from users order by {$ord}");
+
+        return R::getAll("select * from {$table} order by {$ord}");
     }
 
 }
