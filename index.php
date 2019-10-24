@@ -13,7 +13,7 @@ use \Firebase\JWT\JWT;
     <p><a href="logout.php">Выйти</a></p>
 <?php elseif (isset($_SESSION['logged_user']->key)): ?>
     <p class='alert alert-success'>Привет, <?php echo $_SESSION['logged_user']->name ?>!
-        Доступ к <a href="http://artcraft/api.php?type=xml&key=<?php echo $_SESSION['logged_user']->key ?>">API</a></p>
+        Доступ к <a href="/api.php?type=xml&key=<?php echo $_SESSION['logged_user']->key ?>">API</a></p>
     <p><a href="logout.php">Выйти</a></p>
 
     <table class="table table-striped">
@@ -42,7 +42,7 @@ use \Firebase\JWT\JWT;
         $key = $_SESSION['logged_user']->key;
         $token_decoded = JWT::decode($key, $api_key, array('HS256'));
         if ($token_decoded->expired_at < time()) {
-            $token_decoded->expired_at += 3600;
+            $token_decoded->expired_at +=time() + 3600;
             $token = JWT::encode($token_decoded, $api_key);
             $logged_user = $_SESSION['logged_user'];
             $logged_user->key = $token;

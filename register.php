@@ -111,21 +111,22 @@ if (isset($data['do_reg'])) {
 
 
 ?>
-<form action="reg_validate.php" method="POST">
+<form action="/register.php" method="POST">
+    <div style="color:red" id="errors"></div>
     <div class="form-group">
         <label for="name">Введите ваше имя:</label>
-        <p><input type="text" class="form-control validation" name="name" id="name" value="<?php echo @$data['name'] ?>"></p>
+        <p><input type="text" class="form-control js-validate" name="name" id="name" value="<?php echo @$data['name'] ?>"></p>
     </div>
 
     <div class="form-group">
         <label for="email">Введите ваш e-mail:</label>
-        <p><input type="email" class="form-control validation" name="email" id="email" value="<?php echo @$data['email'] ?>"></p>
+        <p><input type="email" class="form-control js-validate" name="email" id="email" value="<?php echo @$data['email'] ?>"></p>
     </div>
 
     <?php
     echo Securimage::getCaptchaHtml();
     ?>
 
-    <button type="submit" name="do_reg" id="reg">Зарегистрироваться</button>
+    <button type="submit" name="do_reg" id="registration" disabled>Зарегистрироваться</button>
 </form>
 <script src="js/lib.js"></script>
