@@ -1,7 +1,7 @@
 <?php
 
-require_once "bootstrap.php";
-require_once "./includes/header.php";
+require_once "../bootstrap.php";
+require_once "../includes/header.php";
 
 use \RedBeanPHP\R as R;
 

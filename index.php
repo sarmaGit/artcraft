@@ -9,11 +9,11 @@ require_once "./includes/header.php";
 <?php if (isset($_SESSION['logged_user']) && !isset($_SESSION['logged_user']->key)): ?>
     <p class='alert alert-success'>Привет, <?php echo $_SESSION['logged_user']->name ?></p>
     <p class='alert alert-danger'>Ваш email еще не подтвержден</p>
-    <p><a href="logout.php">Выйти</a></p>
+    <p><a href="app/logout.php">Выйти</a></p>
 <?php elseif (isset($_SESSION['logged_user']->key)): ?>
     <p class='alert alert-success'>Привет, <?php echo $_SESSION['logged_user']->name ?>!
-        Доступ к <a href="/api.php?type=xml&key=<?php echo $_SESSION['logged_user']->key ?>">API</a></p>
-    <p><a href="logout.php">Выйти</a></p>
+        Доступ к <a href="/app/api.php?type=xml&key=<?php echo $_SESSION['logged_user']->key ?>">API</a></p>
+    <p><a href="app/logout.php">Выйти</a></p>
 
     <table class="table table-striped">
         <thead class="thead-dark">
@@ -42,8 +42,8 @@ require_once "./includes/header.php";
 
     </table>
 <?php else: ?>
-    <p><a href="register.php">Регистрация</a></p>
-    <p><a href="login.php">Войти</a></p>
+    <p><a href="app/register.php">Регистрация</a></p>
+    <p><a href="app/login.php">Войти</a></p>
 
 <?php endif; ?>
 

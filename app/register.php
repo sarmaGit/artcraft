@@ -1,7 +1,7 @@
 <?php
-require_once "bootstrap.php";
-require_once "./includes/header.php";
-require_once "vendor/dapphp/securimage/securimage.php";
+require_once "../bootstrap.php";
+require_once "../includes/header.php";
+require_once "../vendor/dapphp/securimage/securimage.php";
 
 $data = $_POST;
 
@@ -28,7 +28,7 @@ if (isset($data['do_reg'])) {
 
 
 ?>
-<form action="/register.php" method="POST">
+<form action="/app/register.php" method="POST">
     <div style="color:red" id="errors"></div>
     <div class="form-group">
         <label for="name">Введите ваше имя:</label>
@@ -48,4 +48,4 @@ if (isset($data['do_reg'])) {
 
     <button type="submit" name="do_reg" id="registration">Зарегистрироваться</button>
 </form>
-<script src="js/lib.js"></script>
+<script src="../js/lib.js"></script>
