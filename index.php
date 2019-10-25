@@ -3,8 +3,7 @@
 require_once "bootstrap.php";
 require_once "./includes/header.php";
 
-use \RedBeanPHP\R;
-use \Firebase\JWT\JWT;
+//echo $_SERVER['REQUEST_URI'];
 
 ?>
 <?php if (isset($_SESSION['logged_user']) && !isset($_SESSION['logged_user']->key)): ?>
@@ -37,17 +36,8 @@ use \Firebase\JWT\JWT;
             echo "</tr>";
         }
 
-        // Refresh key expire_at
+        User::refresh_key($api_key);
 
-        $key = $_SESSION['logged_user']->key;
-        $token_decoded = JWT::decode($key, $api_key, array('HS256'));
-        if ($token_decoded->expired_at < time()) {
-            $token_decoded->expired_at +=time() + 3600;
-            $token = JWT::encode($token_decoded, $api_key);
-            $logged_user = $_SESSION['logged_user'];
-            $logged_user->key = $token;
-            R::store($logged_user);
-        }
         ?>
 
     </table>

@@ -11,13 +11,14 @@ function objDump(object) {
 }
 
 $(document).ready(function () {
+    $('#registration').attr('disabled',true);
     $('.js-validate').on('keyup change', function () {
         var name = $('#name').val();
         var email = $('#email').val();
         var errors;
         $.ajax({
             type: 'POST',
-            url: '/ajax_validate.php',
+            url: '/app/ajax_validate.php',
             data: {name: name, email: email},
             success: function (data) {
                 if (data == 1) {
@@ -33,7 +34,7 @@ $(document).ready(function () {
                     $("#registration").removeClass('alert alert-success');
                     $("#errors").empty();
                     for (var i in data) {
-                        $("#errors").append(i + " : " + data[i]+"<br>");
+                        $("#errors").append(data[i]+"<br>");
                     }
                 }
             },

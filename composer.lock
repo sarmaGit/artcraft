@@ -7,64 +7,6 @@
     "content-hash": "069a35441eb559b5834cf1783d5a4c4b",
     "packages": [
         {
-            "name": "bshaffer/oauth2-server-php",
-            "version": "v1.11.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bshaffer/oauth2-server-php.git",
-                "reference": "5a0c8000d4763b276919e2106f54eddda6bc50fa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bshaffer/oauth2-server-php/zipball/5a0c8000d4763b276919e2106f54eddda6bc50fa",
-                "reference": "5a0c8000d4763b276919e2106f54eddda6bc50fa",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "aws/aws-sdk-php": "~2.8",
-                "firebase/php-jwt": "~2.2",
-                "mongodb/mongodb": "^1.1",
-                "phpunit/phpunit": "^4.0",
-                "predis/predis": "dev-master",
-                "thobbs/phpcassa": "dev-master"
-            },
-            "suggest": {
-                "aws/aws-sdk-php": "~2.8 is required to use DynamoDB storage",
-                "firebase/php-jwt": "~2.2 is required to use JWT features",
-                "mongodb/mongodb": "^1.1 is required to use MongoDB storage",
-                "predis/predis": "Required to use Redis storage",
-                "thobbs/phpcassa": "Required to use Cassandra storage"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "OAuth2": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Brent Shaffer",
-                    "email": "bshafs@gmail.com",
-                    "homepage": "http://brentertainment.com"
-                }
-            ],
-            "description": "OAuth2 Server for PHP",
-            "homepage": "http://github.com/bshaffer/oauth2-server-php",
-            "keywords": [
-                "auth",
-                "oauth",
-                "oauth2"
-            ],
-            "time": "2018-12-04T00:29:32+00:00"
-        },
-        {
             "name": "dapphp/securimage",
             "version": "4.0.1",
             "source": {
@@ -168,12 +110,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gabordemooij/redbean.git",
-                "reference": "931e4fa3d957a29fa2f67c543255f9fc1603fe0e"
+                "reference": "d612cca9ede9efaaa8aa2684043286315a8b576f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/931e4fa3d957a29fa2f67c543255f9fc1603fe0e",
-                "reference": "931e4fa3d957a29fa2f67c543255f9fc1603fe0e",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/d612cca9ede9efaaa8aa2684043286315a8b576f",
+                "reference": "d612cca9ede9efaaa8aa2684043286315a8b576f",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +143,7 @@
             "keywords": [
                 "orm"
             ],
-            "time": "2019-09-24T20:36:43+00:00"
+            "time": "2019-10-24T16:20:57+00:00"
         },
         {
             "name": "phpmailer/phpmailer",

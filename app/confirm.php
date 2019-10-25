@@ -1,6 +1,6 @@
 <?php
 // Confirm email after registration
-require_once "bootstrap.php";
+require_once "../bootstrap.php";
 
 use \RedBeanPHP\R as R;
 
